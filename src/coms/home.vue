@@ -11,7 +11,7 @@
 		<v-layout align-center justify-center>
 			<v-flex xs12 sm8 style="text-align:center;">
 				<h4>My Interest includes</h4>
-				<h4>UI Designer / Web App Developer</h4>
+				<h4>UI Design / Web App Developement</h4>
 			</v-flex>
 		</v-layout>
 	  </v-parallax>
@@ -23,13 +23,14 @@
 					</v-card-media>
 					<v-card-title primary-title>
 						<div>
-						<h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-						<div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+						<h3 class="headline mb-0">3 year+ Web App Development</h3>
+						<div>
+							Javascript | CSS | HTML | AngularJS | React.js | D3.js | Vue.js | Node.js | ES6 | Webpack ...
+						</div>
 						</div>
 					</v-card-title>
 					<v-card-actions>
-						<v-btn flat class="orange--text">Share</v-btn>
-						<v-btn flat class="orange--text">Explore</v-btn>
+						<v-btn flat class="orange--text" to="exp">Show Experience</v-btn>
 					</v-card-actions>
 				</v-card>
 			</v-flex>
@@ -39,18 +40,16 @@
 		<v-layout align-center justify-center>
 			<v-flex xs12 sm8>
 				<v-card class="cyan darken-2 elevation-8">
-					<v-card-media src="/public/desert.jpg" height="200px">
+					<v-card-media src="/public/sunshine.jpg" height="200px">
 					</v-card-media>
 					<v-card-title primary-title>
 						<div>
-						<h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-						<div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+						<h3 class="headline mb-0">Master of Science</h3>
+						<div>
+							Computer Engineering with focus on Software Development. 
+						</div>
 						</div>
 					</v-card-title>
-					<v-card-actions>
-						<v-btn flat class="orange--text">Share</v-btn>
-						<v-btn flat class="orange--text">Explore</v-btn>
-					</v-card-actions>
 				</v-card>
 			</v-flex>
 		</v-layout>

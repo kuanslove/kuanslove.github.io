@@ -4,7 +4,7 @@
       temporary 
       v-model="drawer"
       enable-resize-watcher
-      absolute
+      fixed
     >
       <v-list dense>
         <v-list-tile to="/user">
@@ -17,7 +17,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed class="light-blue darken-3">
+    <v-toolbar fixed class="light-blue darken-3" style="opacity:0.9;">
       <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up">
       </v-toolbar-side-icon>
       <v-toolbar-title>
@@ -30,10 +30,6 @@
         <v-btn class="ml-1" flat exact to="/">
           <v-icon class="mr-1">face</v-icon>
           About            
-        </v-btn>
-        <v-btn class="ml-1" flat to="/exp">
-          <v-icon class="mr-1">folder_open</v-icon>
-          Experince
         </v-btn>
         <v-btn class="ml-1" flat to="/contact">
           <v-icon class="mr-1">email</v-icon>
