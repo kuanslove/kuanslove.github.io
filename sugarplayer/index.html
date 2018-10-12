@@ -43,9 +43,8 @@
 				setThisVid(vpath){
 					this.player.stop();
 					this.currentVid = vpath
-					setTimeout(()=>{
-						this.player.play();
-					}, 1000)
+					this.player.load();
+					this.player.play();
 				}
 			},
 			created(){
