@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PLAYER</title>
+	<link rel="stylesheet" type="text/css" href="plyr.css">
+</head>
+<body>
+	<script id="vplst" type="text/x-template">
+		<div style="width:320px; height:240px;">
+			<video id="player" playsinline control style="width: 100%; height:100%;">
+			    <source :src="currentVid" type="video/webm">
+			</video>
+			  <ul class="actions">
+			    <li v-for="v in vids" :key="v" style="margin:5px;">
+			    	<button @click="setThisVid(v)">{{v}}</button>
+			    </li>
+			  </ul>
+		</div>
+	</script>
+
+	<div id="app">
+		<vplst></vplst>
+	</div>
+
+	<script src="vue.js"></script>
+	<script src="plyr.js"></script>
+	<script type="text/javascript">
+
+		Vue.component("vplst", {
+			template:"#vplst",
+			data:function(){
+				return {
+					player: null,
+					vids:[
+						"vid/video1.webm",
+						"vid/video2.webm",
+						"vid/video3.webm"
+					],
+					currentVid:null
+				}
+			},
+			methods:{
+				setThisVid(vpath){
+					this.player.stop();
+					this.currentVid = vpath
+					setTimeout(()=>{
+						this.player.play();
+					}, 1000)
+				}
+			},
+			created(){
+				this.currentVid = this.vids[0];
+			},
+			mounted(){
+		  		this.player = new Plyr('#player');
+			}
+		})
+
+		new Vue({
+			el:"#app",
+			data:{}
+		})
+
+	</script>
+
+</body>
+</html>
