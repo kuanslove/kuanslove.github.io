@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>PLAYER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<style type="text/css">
 		.playitem {
 			color: white;
@@ -18,6 +19,8 @@
 			background-color: grey;
 		}
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<script id="vplst" type="text/x-template">
@@ -34,9 +37,47 @@
 			</div>
 		</div>
 	</script>
+	<script id="vslider" type="text/x-template">
+		<div id="vslider" style="width:512px; height:275px;">
+		  <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+		    <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1"></li>
+		      <li data-target="#myCarousel" data-slide-to="2"></li>
+		    </ol>
 
+		    <!-- Wrapper for slides -->
+		    <div class="carousel-inner">
+		      <div class="item active">
+		        <img src="img/1.jpg" alt="1" style="width:100%;">
+		      </div>
+
+		      <div class="item">
+		        <img src="img/2.jpg" alt="2" style="width:100%;">
+		      </div>
+		    
+		      <div class="item">
+		        <img src="img/3.jpg" alt="3" style="width:100%;">
+		      </div>
+		    </div>
+
+		    <!-- Left and right controls -->
+		    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		      <span class="glyphicon glyphicon-chevron-left"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		  </div>
+		</div>
+
+
+	</script>
 	<div id="app">
-		<vplst></vplst>
+		<vplst style="float:left;"></vplst>
+		<vslider style="float:left;"></vslider>
 	</div>
 
 	<script src="vue.js"></script>
@@ -78,6 +119,10 @@
 			mounted(){
 		  		
 			}
+		})
+		Vue.component("vslider",{
+			template:"#vslider",
+			data:{},
 		})
 		new Vue({
 			el:"#app",
