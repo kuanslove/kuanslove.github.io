@@ -2,19 +2,32 @@
 <html>
 <head>
 	<title>PLAYER</title>
-	<link rel="stylesheet" type="text/css" href="plyr.css">
+	<style type="text/css">
+		.playitem {
+			color: white;
+			padding:5px;
+			box-sizing:border-box; 
+			font-size:12px; 
+			cursor: pointer;
+			height: 24px;
+		}
+		.playitem:hover {
+			background-color: grey;
+		}
+	</style>
 </head>
 <body>
 	<script id="vplst" type="text/x-template">
-		<div style="width:320px; height:240px;">
-			<video id="player" playsinline control style="width: 100%; height:100%;">
-			    <source :src="currentVid" type="video/webm">
-			</video>
-			  <ul class="actions">
-			    <li v-for="v in vids" :key="v" style="margin:5px;">
-			    	<button @click="setThisVid(v)">{{v}}</button>
-			    </li>
-			  </ul>
+		<div style="display: flex; width:760px; height: 275px;" class="l-player">
+			<div style="display: inline-block;flex:0 0 512px; width:512px; height:275px; background-color:black;">
+				<iframe :id="'cciframe_'+currentVid" :src="'https://p.bokecc.com/playhtml.bo?vid='+currentVid+'&siteid=E72C4B5308DDA70C&autoStart=true&playerid=A07C55E0958105AC&playertype=1'" frameborder="0" height="275" width="512"></iframe>
+			</div>
+
+			<div style="display:inline-block; flex:0 0 200px; width:200px; height:275px; background-color:black;">
+				<div class="playitem" v-for="v in vids" :key="v.id" @click="setThisVid(v.id)">
+					{{v.title}}
+				</div>
+			</div>
 		</div>
 	</script>
 
@@ -23,7 +36,6 @@
 	</div>
 
 	<script src="vue.js"></script>
-	<script src="plyr.js"></script>
 	<script type="text/javascript">
 
 		Vue.component("vplst", {
@@ -32,26 +44,23 @@
 				return {
 					player: null,
 					vids:[
-						"vid/video1.webm",
-						"vid/video2.webm",
-						"vid/video3.webm"
+						{id:"6F11D830FB1A611F9C33DC5901307461", title:"澳門美食"},
+						{id:"24F817D43FB6B7389C33DC5901307461", title:"长隆29周年庆"},
+						{id:"36533947271DC6649C33DC5901307461", title:"鸟巢视频"}
 					],
 					currentVid:null
 				}
 			},
 			methods:{
 				setThisVid(vpath){
-					this.player.stop();
 					this.currentVid = vpath
-					this.player.load();
-					this.player.play();
 				}
 			},
 			created(){
-				this.currentVid = this.vids[0];
+				this.currentVid = this.vids[0].id;
 			},
 			mounted(){
-		  		this.player = new Plyr('#player');
+		  		
 			}
 		})
 
