@@ -10,6 +10,9 @@
 			font-size:12px; 
 			cursor: pointer;
 			height: 24px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 		.playitem:hover {
 			background-color: grey;
@@ -24,7 +27,8 @@
 			</div>
 
 			<div style="display:inline-block; flex:0 0 200px; width:200px; height:275px; background-color:black;">
-				<div class="playitem" v-for="v in vids" :key="v.id" @click="setThisVid(v.id)">
+				<div class="playitem" v-for="v in vids" :key="v.id" 
+				@click="setThisVid(v.id)" :title="v.title">
 					{{v.title}}
 				</div>
 			</div>
@@ -37,16 +41,28 @@
 
 	<script src="vue.js"></script>
 	<script type="text/javascript">
-
 		Vue.component("vplst", {
 			template:"#vplst",
 			data:function(){
 				return {
 					player: null,
 					vids:[
-						{id:"6F11D830FB1A611F9C33DC5901307461", title:"澳門美食"},
-						{id:"24F817D43FB6B7389C33DC5901307461", title:"长隆29周年庆"},
-						{id:"36533947271DC6649C33DC5901307461", title:"鸟巢视频"}
+						{
+							id:"1BAB31A01239EC909C33DC5901307461",
+							title:"5分钟 感受澳门无限式"
+						},
+						{
+							id:"C0679724A65EAB1D9C33DC5901307461", 
+							title:"美食暴击，那些你绝对不能错过的澳门老字号"
+						},
+						{
+							id:"30DBE5DF7D5CC4059C33DC5901307461", 
+							title:"澳门异国美食大推荐，体验亚洲唯一的印度米其林餐厅"
+						},
+						{
+							id:"59FBF4225BCE19E39C33DC5901307461", 
+							title:"真香警告！澳门豪华美味来袭每一道菜都垂涎欲滴"
+						}
 					],
 					currentVid:null
 				}
@@ -63,12 +79,10 @@
 		  		
 			}
 		})
-
 		new Vue({
 			el:"#app",
 			data:{}
 		})
-
 	</script>
 
 </body>
